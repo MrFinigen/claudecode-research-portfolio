@@ -32,27 +32,27 @@
       <div class="hero__inner">
 
         <div class="hero__content">
-          <div class="hero__eyebrow fade-in">
+          <div class="hero__eyebrow" data-anim="up" style="--delay:.05s">
             <div class="hero__eyebrow-dot"></div>
             <span class="hero__eyebrow-text">UX Researcher &nbsp;·&nbsp; Sydney, AU</span>
           </div>
 
-          <h1 class="hero__name fade-in fade-in-delay-1">
+          <h1 class="hero__name" data-anim="up-xl" style="--delay:.15s">
             Michael<br>Gayed
           </h1>
 
-          <p class="hero__title fade-in fade-in-delay-2">User Experience Researcher</p>
+          <p class="hero__title" data-anim="up" style="--delay:.28s">User Experience Researcher</p>
 
-          <p class="hero__tagline fade-in fade-in-delay-3">
+          <p class="hero__tagline" data-anim="up" style="--delay:.38s">
             Turning complex human behaviour into clear,<br>confident design decisions.
           </p>
 
-          <div class="hero__ctas fade-in fade-in-delay-4">
+          <div class="hero__ctas" data-anim="up" style="--delay:.48s">
             <a href="#work" class="btn btn--primary">
               View Case Studies
               <svg width="13" height="13" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M2 7h10M7 2l5 5-5 5"/></svg>
             </a>
-            <a href="Content/Assests/CV _ Resume (Community).pdf" download class="btn btn--outline-dark">
+            <a href="Content/Assests/CV _ Resume (Community).pdf" download class="btn btn--ghost-dark">
               Download CV
               <svg width="13" height="13" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M7 2v8M4 7l3 3 3-3M2 12h10"/></svg>
             </a>
@@ -83,9 +83,7 @@
     </div>
 
     <div class="hero__scroll" aria-hidden="true">
-      <div class="hero__scroll-track">
-        <div class="hero__scroll-fill"></div>
-      </div>
+      <div class="hero__scroll-track"><div class="hero__scroll-fill"></div></div>
       <span class="hero__scroll-label">Scroll</span>
     </div>
   </section>
@@ -93,22 +91,22 @@
   <!-- ============================================================
        STATS BAND
        ============================================================ -->
-  <div class="stats-band" aria-hidden="true">
+  <div class="stats-band" aria-label="Key research outcomes">
     <div class="stats-band__inner">
-      <div class="stats-band__item">
-        <div class="stats-band__num"><em>40%</em> ↑</div>
+      <div class="stats-band__item" data-anim="up" style="--delay:.0s">
+        <div class="stats-band__num"><em data-count="40" data-suffix="%">40%</em> ↑</div>
         <div class="stats-band__label">Digital wallet adoption</div>
       </div>
-      <div class="stats-band__item">
-        <div class="stats-band__num"><em>35%</em> ↓</div>
+      <div class="stats-band__item" data-anim="up" style="--delay:.1s">
+        <div class="stats-band__num"><em data-count="35" data-suffix="%">35%</em> ↓</div>
         <div class="stats-band__label">Card replacement reports</div>
       </div>
-      <div class="stats-band__item">
-        <div class="stats-band__num"><em>8M</em></div>
+      <div class="stats-band__item" data-anim="up" style="--delay:.2s">
+        <div class="stats-band__num"><em data-count="8" data-suffix="M">8M</em></div>
         <div class="stats-band__label">Clicks to view card credentials</div>
       </div>
-      <div class="stats-band__item">
-        <div class="stats-band__num"><em>5+</em> yrs</div>
+      <div class="stats-band__item" data-anim="up" style="--delay:.3s">
+        <div class="stats-band__num"><em data-count="5" data-suffix="+">5+</em> yrs</div>
         <div class="stats-band__label">At Australia's largest bank</div>
       </div>
     </div>
@@ -121,19 +119,17 @@
     <div class="container">
 
       <div class="work__header">
-        <div class="fade-in">
+        <div data-anim="left">
           <span class="section-label">Selected Work</span>
           <h2 class="display-lg">Research that<br>moves the needle.</h2>
         </div>
-        <p class="work__desc fade-in fade-in-delay-1">
+        <p class="work__desc" data-anim="right" style="--delay:.1s">
           End-to-end research projects at Australia's largest bank — from discovery through to validated, shipped product.
         </p>
       </div>
 
       <div class="cards-grid">
-
-        <!-- Card 1 -->
-        <article class="card fade-in fade-in-delay-1">
+        <article class="card" data-anim="card-l" style="--delay:.05s">
           <div class="card__thumb">
             <img
               src="Content/Assests/images/Case study 1 images/image 12.png"
@@ -162,8 +158,7 @@
           </div>
         </article>
 
-        <!-- Card 2 -->
-        <article class="card fade-in fade-in-delay-2">
+        <article class="card" data-anim="card-r" style="--delay:.15s">
           <div class="card__thumb">
             <img
               src="Content/Assests/images/Case study 2 images/image 13.png"
@@ -191,24 +186,24 @@
             </div>
           </div>
         </article>
-
       </div>
+
     </div>
   </section>
 
   <!-- ============================================================
        ABOUT / CV
        ============================================================ -->
-  <section class="section section--cream" id="about">
+  <section class="section section--b1" id="about">
     <div class="container">
 
-      <div class="about__header fade-in">
+      <div class="about__header" data-anim="up-xl">
         <span class="section-label">About &amp; CV</span>
         <h2 class="display-lg">Researcher. Psychologist.<br>Storyteller.</h2>
       </div>
 
       <div class="about__top">
-        <div class="about__bio fade-in fade-in-delay-1">
+        <div class="about__bio" data-anim="left">
           <p>
             I'm a <strong>User Experience Researcher</strong> with a background in Psychology and Organisational Psychology. At Commonwealth Bank of Australia, I lead end-to-end research for product and design teams — from discovery to validation — ensuring the customer is always at the forefront of decision-making.
           </p>
@@ -220,7 +215,7 @@
           </p>
         </div>
 
-        <div class="skills-panel fade-in fade-in-delay-2">
+        <div class="skills-panel" data-anim="right">
           <div>
             <div class="skills-group__label">Research Methods</div>
             <div class="skills-group__tags">
@@ -253,7 +248,7 @@
       </div>
 
       <!-- Experience -->
-      <div class="fade-in">
+      <div data-anim="up">
         <span class="section-label" style="margin-bottom:32px">Experience</span>
         <div class="timeline">
 
@@ -302,7 +297,7 @@
       </div>
 
       <!-- Education + Publications -->
-      <div class="about__lower fade-in">
+      <div class="about__lower" data-anim="up">
         <div>
           <div class="about__lower-label">Education</div>
           <div class="edu-item">
@@ -327,8 +322,7 @@
         </div>
       </div>
 
-      <!-- CV Download -->
-      <div class="cv-banner fade-in">
+      <div class="cv-banner" data-anim="up">
         <div class="cv-banner__text">
           <div class="cv-banner__title">Full CV available for download</div>
           <div class="cv-banner__sub">Complete work history, skills, education, and published works.</div>
@@ -345,20 +339,19 @@
   <!-- ============================================================
        CONTACT
        ============================================================ -->
-  <section class="section section--ink" id="contact">
+  <section class="section" id="contact">
     <div class="container">
       <div class="contact__body">
 
-        <div class="contact__left fade-in">
-          <span class="section-label section-label--dark">Get in touch</span>
+        <div class="contact__left" data-anim="left">
+          <span class="section-label">Get in touch</span>
           <h2 class="contact__heading">Let's work<br>together.</h2>
           <p class="contact__desc">
             Open to new opportunities and always happy to connect with teams who care deeply about their users.
           </p>
         </div>
 
-        <div class="contact__links fade-in fade-in-delay-2">
-
+        <div class="contact__links" data-anim="right" style="--delay:.15s">
           <a href="mailto:michaelgayed117@outlook.com" class="contact__link" aria-label="Email Michael Gayed">
             <div class="contact__link-left">
               <div class="contact__link-icon">
@@ -384,7 +377,6 @@
             </div>
             <span class="contact__arrow">→</span>
           </a>
-
         </div>
 
       </div>
