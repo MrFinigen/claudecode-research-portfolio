@@ -17,6 +17,14 @@
   font-display: swap;
 }
 
+@font-face {
+  font-family: 'Talina';
+  src: url('../Content/fonts/Talina DEMO.otf') format('opentype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
 /* ============================================================
    DESIGN TOKENS
    ============================================================ */
@@ -42,7 +50,7 @@
   --accent-dark:  #A34E2D;
 
   /* Type */
-  --font-display: 'Mileast', 'DM Serif Display', Georgia, serif;
+  --font-display: 'Talina', 'DM Serif Display', Georgia, serif;
   --font-body:    'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
 
   /* Radii */
