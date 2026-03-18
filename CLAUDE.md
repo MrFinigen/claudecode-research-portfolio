@@ -8,41 +8,72 @@ Static personal portfolio website for Michael Gayed, UX Researcher at Commonweal
 
 ## Running the site
 
-Open any HTML file directly in a browser:
-```
-open index.html
-open case-study-1.html
-open case-study-2.html
-```
-
-Or serve locally (avoids any file:// quirks with fonts):
+Must be served (not opened as `file://`) because browsers block local font loading:
 ```
 python3 -m http.server 8000
+# then open http://localhost:8000
 ```
 
 ## Architecture
 
-**Three pages, one shared stylesheet:**
+**Three pages, one shared stylesheet and one JS file:**
 
-- `index.html` — single-page layout: hero → case study cards → full CV/about → contact
-- `case-study-1.html` — CommBank App Cards (mixed-methods research)
-- `case-study-2.html` — CommBank Bank Vault (ethnographic research)
-- `css/styles.css` — all styles for all three pages; organised by: design tokens → reset → typography → layout → components → page-specific → animations → responsive
-- `js/main.js` — ~50 lines; Intersection Observer for scroll fade-ins, sticky nav `.scrolled` class toggle
+- `index.html` — hero → stats band → case study cards → about/CV → contact
+- `case-study-1.html` — CommBank App Cards (mixed-methods)
+- `case-study-2.html` — CommBank Bank Vault (ethnographic)
+- `css/styles.css` — all styles for all three pages
+- `js/main.js` — scroll animations, number counters, card tilt, sticky nav
 
-**Design tokens** are CSS custom properties at the top of `styles.css` (`:root`). Change colours, spacing, and fonts there — not inline.
+**Assets** live under `Content/Assests/` (typo in folder name — preserve it):
+- `Content/Assests/CV _ Resume (Community).pdf` — CV download target
+- `Content/Assests/images/Case study 1 images/` — case study 1 images
+- `Content/Assests/images/Case study 2 images/` — case study 2 images
+- `Content/fonts/` — local `.otf` font files (currently Talina DEMO + Mileast)
 
-**Content and assets** live under `Content/Assests/` (note the typo in the folder name — preserve it):
-- `Content/Assests/CV _ Resume (Community).pdf` — linked from CV download buttons
-- `Content/Assests/images/Case study 1 images/` — images for case study 1
-- `Content/Assests/images/Case study 2 images/` — images for case study 2
+## Design tokens
 
-## Key conventions
+All colours, spacing, and fonts are CSS custom properties in `:root` at the top of `styles.css`. Change values there, not inline. Key tokens:
 
-- **Animations**: add class `fade-in` to any element for scroll-triggered fade-in-up. Add `fade-in-delay-1` through `fade-in-delay-4` for staggered timing. The JS observer fires once and unobserves.
-- **Responsive breakpoint**: 768px (and 480px for stacked buttons). CSS is desktop-first with `@media (max-width: 768px)` overrides at the bottom of `styles.css`.
-- **Section spacing**: controlled by `--section-pad` CSS variable (96px desktop, 56px mobile).
-- **No nav links on mobile** — `.nav__links` is hidden at 768px via `display:none`. If adding a hamburger menu, that CSS rule is the entry point.
+| Token | Purpose |
+|---|---|
+| `--bg` / `--bg-1` / `--bg-2` / `--bg-3` / `--bg-4` | Dark background layers (lightest = `--bg-4`) |
+| `--text` / `--text-mid` / `--text-faint` | Text hierarchy |
+| `--accent` | Terracotta `#C4623A` — buttons, labels, dots |
+| `--font-display` | Heading font stack — currently Talina, fallback DM Serif Display |
+| `--font-body` | Body font — Inter |
+| `--section-pad` | Section vertical padding (112px desktop, 64px mobile) |
+| `--max-w` | Max content width (1160px) |
+
+## Custom fonts
+
+Fonts are loaded via `@font-face` at the top of `styles.css`, pointing to `../Content/fonts/`. To switch the display font, change the first entry in `--font-display`. To add a new font, add a `@font-face` block and update the token.
+
+## Animation system
+
+Scroll animations use a `data-anim` attribute + `.animated` class toggled by `IntersectionObserver` in `main.js`. Use `--delay` CSS custom property for stagger timing.
+
+| `data-anim` value | Motion |
+|---|---|
+| `up` | fade + translateY(48px) |
+| `up-xl` | fade + translateY(72px) + blur — for large headings |
+| `left` | translateX(-64px) — section headers, left-column content |
+| `right` | translateX(64px) — right-column content |
+| `card-l` | translateX(-80px) + rotate(-3deg) — left card |
+| `card-r` | translateX(80px) + rotate(3deg) — right card |
+| `scale` | scale(0.78) — stat cards, gallery items |
+| `pop` | scale(0.55) — skill tags |
+
+**JS auto-stagger**: skill tags, gallery items, stat cards, method cards, and `.rq-item` elements inside their containers are staggered automatically by `main.js` — no per-element attributes needed.
+
+**Number counters**: add `data-count="40" data-suffix="%"` to any element to animate it counting up on scroll entry.
+
+**Card tilt**: `.card` elements get a 3D mouse-tracking tilt on desktop automatically (no markup needed).
+
+## Responsive breakpoints
+
+- `960px` — two-column grids collapse; `card-l`/`card-r` animations revert to plain `up`
+- `768px` — nav links hidden, container padding reduces, single-column stats band
+- `480px` — stacked CTAs, single-column stats/methods
 
 ## Git workflow
 
